@@ -6,7 +6,7 @@
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="MagentoEse_B2BAdminConfigurations" setup_version="0.0.1">
+    <module name="MagentoEse_B2bAdminConfigurations" setup_version="0.0.1">
         <sequence name="Magento_B2B"/>
         <sequence name="Magento_Company"/>
         <sequence name="Magento_NegotiableQuote"/>

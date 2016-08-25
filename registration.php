@@ -6,4 +6,4 @@
 
 use \Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'MagentoEse_B2BAdminConfigurations', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'MagentoEse_B2bAdminConfigurations', __DIR__);
