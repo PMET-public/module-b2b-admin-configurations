@@ -37,7 +37,7 @@
              "btob/website_configuration/negotiablequote_active", "1", "default", 0)->saveConfig(
              "btob/website_configuration/quickorder_active", "1", "default", 0)->saveConfig(
              "btob/website_configuration/requisition_list_active", "1", "default", 0)->saveConfig(
-             "btob/website_configuration/sharedcatalog_active", "1", "default", 0)->saveConfig(
+             "btob/website_configuration/sharedcatalog_active", "0", "default", 0)->saveConfig(
              "design/theme/theme_id", $themeId, "default", 0);
      }
 }
