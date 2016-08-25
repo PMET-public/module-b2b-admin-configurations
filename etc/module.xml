@@ -7,10 +7,13 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="MagentoEse_B2bAdminConfigurations" setup_version="0.0.1">
-        <sequence name="Magento_B2B"/>
-        <sequence name="Magento_Company"/>
-        <sequence name="Magento_NegotiableQuote"/>
-        <sequence name="Magento_RequisitionList"/>
-        <sequence name="Magento_SharedCatalog"/>
+        <sequence>
+            <module name="Magento_B2B"/>
+            <module name="Magento_Company"/>
+            <module name="Magento_NegotiableQuote"/>
+            <module name="Magento_RequisitionList"/>
+            <module name="Magento_SharedCatalog"/>
+            <module name="Magento_Theme"/>
+        </sequence>
     </module>
 </config>
