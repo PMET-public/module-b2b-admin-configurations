@@ -38,11 +38,7 @@
              "btob/website_configuration/quickorder_active", "1", "default", 0)->saveConfig(
              "btob/website_configuration/requisition_list_active", "1", "default", 0)->saveConfig(
              //"btob/website_configuration/sharedcatalog_active", "1", "default", 0)->saveConfig(
-             //"btob/website_configuration/sharedcatalog_active", "1", "default", 0)->saveConfig(
-             ///"catalog/magento_catalogpermissions/enabled", "1", "default", 0)->saveConfig(
-             //"catalog/magento_catalogpermissions/grant_catalog_category_view", "1", "default", 0)->saveConfig(
-             //"catalog/magento_catalogpermissions/grant_catalog_product_price", "1", "default", 0)->saveConfig(
-            // "catalog/magento_catalogpermissions/grant_checkout_items", "1", "default", 0)->saveConfig(
+             //"catalog/magento_catalogpermissions/enabled", "1", "default", 0)->saveConfig(
              "catalog/layered_navigation/interval_division_limit", "10", "default", 0)->saveConfig(
              "catalog/layered_navigation/price_range_calculation", "improved", "default", 0)->saveConfig(
              "cataloginventory/item_options/min_sale_qty", "5", "default", 0)->saveConfig(
