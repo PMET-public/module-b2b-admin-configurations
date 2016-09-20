@@ -31,7 +31,6 @@ class InstallData implements InstallDataInterface
 
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
-
         //get id of brentmill theme
         $themeId = $this->themeCollection->getThemeByFullPath('frontend/MagentoEse/brentmill')->getThemeId();
         $this->_resourceConfig->saveConfig(
@@ -39,16 +38,12 @@ class InstallData implements InstallDataInterface
             "btob/website_configuration/negotiablequote_active", "1", "default", 0)->saveConfig(
             "btob/website_configuration/quickorder_active", "1", "default", 0)->saveConfig(
             "btob/website_configuration/requisition_list_active", "1", "default", 0)->saveConfig(
-        //"btob/website_configuration/sharedcatalog_active", "1", "default", 0)->saveConfig(
-        //"catalog/magento_catalogpermissions/enabled", "1", "default", 0)->saveConfig(
+            //"btob/website_configuration/sharedcatalog_active", "1", "default", 0)->saveConfig(
+            //"catalog/magento_catalogpermissions/enabled", "1", "default", 0)->saveConfig(
             "catalog/layered_navigation/interval_division_limit", "10", "default", 0)->saveConfig(
             "catalog/layered_navigation/price_range_calculation", "improved", "default", 0)->saveConfig(
             "cataloginventory/item_options/min_sale_qty", "5", "default", 0)->saveConfig(
-            "design/theme/theme_id", $themeId, "default", 0)->saveConfig(
-            "admin/security/session_lifetime", "900000", "default", 0)->saveConfig(
-            "system/full_page_cache/ttl", "8640000", "default", 0)->saveConfig(
-            "web/cookie/cookie_lifetime", "604800", "default", 0)->saveConfig(
-            "admin/security/admin_account_sharing", "1", "default", 0)->saveConfig(
-            "web/seo/use_rewrites", "1", "default", 0);
+            "design/theme/theme_id", $themeId, "default", 0);
     }
+
 }
