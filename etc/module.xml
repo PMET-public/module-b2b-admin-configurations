@@ -14,6 +14,7 @@
             <module name="Magento_RequisitionList"/>
             <module name="Magento_SharedCatalog"/>
             <module name="Magento_Theme"/>
+            <module name="Magento_CatalogPermissions"/>
         </sequence>
     </module>
 </config>
