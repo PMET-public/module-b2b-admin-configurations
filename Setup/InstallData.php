@@ -46,6 +46,7 @@ class InstallData implements InstallDataInterface
             "catalog/layered_navigation/interval_division_limit", "10", "default", 0)->saveConfig(
             "catalog/layered_navigation/price_range_calculation", "improved", "default", 0)->saveConfig(
             "cataloginventory/item_options/min_sale_qty", "5", "default", 0)->saveConfig(
+            "payment/companycredit/active", "1", "default", 0)->saveConfig(
             "design/theme/theme_id", $themeId, "default", 0);
     }
 
