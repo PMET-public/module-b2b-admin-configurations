@@ -35,6 +35,10 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), '0.0.1', '<=')) {
             $this->_resourceConfig->saveConfig("google/analytics/account", "UA-53529203-6", "default", 0);
         }
+        if (version_compare($context->getVersion(), '0.0.2', '<=')) {
+            $this->_resourceConfig->saveConfig("payment/companycredit/max_order_total", "250000", "default", 0);
+            $this->_resourceConfig->saveConfig("payment/companycredit/min_order_total", "1", "default", 0);
+        }
     }
 
 }
