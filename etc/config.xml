@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <catalog>
+            <magento_catalogpermissions>
+                <enabled>1</enabled>
+                <grant_catalog_category_view>1</grant_catalog_category_view>
+                <grant_catalog_product_price>1</grant_catalog_product_price>
+                <grant_checkout_items>1</grant_checkout_items>
+            </magento_catalogpermissions>
+        </catalog>
+    </default>
+</config>
