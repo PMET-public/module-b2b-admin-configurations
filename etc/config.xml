@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
+        <btob>
+            <website_configuration>
+                <company_active>1</company_active>
+                <negotiablequote_active>1</negotiablequote_active>
+                <quickorder_active>1</quickorder_active>
+                <requisition_list_active>1</requisition_list_active>
+                <sharedcatalog_active>1</sharedcatalog_active>
+            </website_configuration>
+        </btob>
         <catalog>
             <magento_catalogpermissions>
                 <enabled>1</enabled>

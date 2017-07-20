@@ -39,6 +39,10 @@ class UpgradeData implements UpgradeDataInterface
             $this->_resourceConfig->saveConfig("payment/companycredit/max_order_total", "250000", "default", 0);
             $this->_resourceConfig->saveConfig("payment/companycredit/min_order_total", "1", "default", 0);
         }
+        if (version_compare($context->getVersion(), '0.0.3', '<=')) {
+            $this->_resourceConfig->saveConfig("cataloginventory/item_options/min_sale_qty", "1", "default", 0);
+
+        }
     }
 
 }
