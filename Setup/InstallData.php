@@ -13,24 +13,43 @@ use Magento\Framework\Event\ObserverInterface;
 
 class InstallData implements InstallDataInterface
 {
-    public $_resourceConfig;
+
     /**
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     protected $resourceConfig;
+
+    /**
+     * @var \Magento\Theme\Model\ResourceModel\Theme\Collection
+     */
     protected $themeCollection;
 
+    /**
+     * @var \Magento\Theme\Model\Theme\Registration
+     */
+    protected $themeRegistration;
+
+    /**
+     * InstallData constructor.
+     * @param \Magento\Config\Model\ResourceModel\Config $resourceConfig
+     * @param \Magento\Theme\Model\ResourceModel\Theme\Collection $themeCollection
+     * @param \Magento\Theme\Model\Theme\Registration $themeRegistration
+     */
     public function __construct(
         \Magento\Config\Model\ResourceModel\Config $resourceConfig,
-        \Magento\Theme\Model\ResourceModel\Theme\Collection $themeCollection
+        \Magento\Theme\Model\ResourceModel\Theme\Collection $themeCollection,
+        \Magento\Theme\Model\Theme\Registration $themeRegistration
     )
     {
         $this->_resourceConfig = $resourceConfig;
         $this->themeCollection = $themeCollection;
+        $this->themeRegistration = $themeRegistration;
     }
 
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
+        //make sure theme is registered
+        $this->themeRegistration->register();
         //get id of brentmill theme
         $themeId = $this->themeCollection->getThemeByFullPath('frontend/MagentoEse/brentmill')->getThemeId();
         $this->_resourceConfig->saveConfig(
