@@ -1,58 +1,45 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
+ * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
 
-namespace MagentoEse\B2bAdminConfigurations\Setup;
+namespace MagentoEse\B2bAdminConfigurations\Setup\Patch\Data;
 
-use Magento\Framework\Setup\InstallDataInterface;
-use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
-use Magento\Framework\Event\ObserverInterface;
 
-class InstallData implements InstallDataInterface
+use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Magento\Framework\Setup\Patch\PatchVersionInterface;
+use Magento\Theme\Model\Theme\Registration as ThemeRegistration;
+use Magento\Config\Model\ResourceModel\Config as ResourceConfig;
+use Magento\Theme\Model\ResourceModel\Theme\Collection as ThemeCollection;
+
+class OldInstallData implements DataPatchInterface, PatchVersionInterface
 {
+    /** @var ThemeRegistration  */
+    private $themeRegistration;
 
-    /**
-     * @var \Magento\Framework\App\Config\ScopeConfigInterface
-     */
-    protected $resourceConfig;
+    /** @var ResourceConfig  */
+    private $resourceConfig;
 
-    /**
-     * @var \Magento\Theme\Model\ResourceModel\Theme\Collection
-     */
-    protected $themeCollection;
+    /** @var ThemeCollection  */
+    private $themeCollection;
 
-    /**
-     * @var \Magento\Theme\Model\Theme\Registration
-     */
-    protected $themeRegistration;
-
-    /**
-     * InstallData constructor.
-     * @param \Magento\Config\Model\ResourceModel\Config $resourceConfig
-     * @param \Magento\Theme\Model\ResourceModel\Theme\Collection $themeCollection
-     * @param \Magento\Theme\Model\Theme\Registration $themeRegistration
-     */
-    public function __construct(
-        \Magento\Config\Model\ResourceModel\Config $resourceConfig,
-        \Magento\Theme\Model\ResourceModel\Theme\Collection $themeCollection,
-        \Magento\Theme\Model\Theme\Registration $themeRegistration
-    )
+    public function __construct(ThemeRegistration $themeRegistration,
+                                ResourceConfig $resourceConfig,
+                                ThemeCollection $themeCollection)
     {
-        $this->_resourceConfig = $resourceConfig;
-        $this->themeCollection = $themeCollection;
         $this->themeRegistration = $themeRegistration;
+        $this->resourceConfig = $resourceConfig;
+        $this->themeCollection = $themeCollection;
     }
 
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+    public function apply()
     {
         //make sure theme is registered
         $this->themeRegistration->register();
         //get id of brentmill theme
         $themeId = $this->themeCollection->getThemeByFullPath('frontend/MagentoEse/brentmill')->getThemeId();
-        $this->_resourceConfig->saveConfig(
+        $this->resourceConfig->saveConfig(
             "btob/website_configuration/company_active", "1", "default", 0)->saveConfig(
             "btob/website_configuration/negotiablequote_active", "1", "default", 0)->saveConfig(
             "btob/website_configuration/quickorder_active", "1", "default", 0)->saveConfig(
@@ -69,4 +56,18 @@ class InstallData implements InstallDataInterface
             "design/theme/theme_id", $themeId, "default", 0);
     }
 
+    public static function getDependencies()
+    {
+        return [];
+    }
+
+    public function getAliases()
+    {
+        return [];
+    }
+
+    public static function getVersion()
+    {
+        return '0.0.4';
+    }
 }
