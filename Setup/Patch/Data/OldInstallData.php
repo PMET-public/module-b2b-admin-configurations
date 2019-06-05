@@ -24,6 +24,12 @@ class OldInstallData implements DataPatchInterface, PatchVersionInterface
     /** @var ThemeCollection  */
     private $themeCollection;
 
+    /**
+     * OldInstallData constructor.
+     * @param ThemeRegistration $themeRegistration
+     * @param ResourceConfig $resourceConfig
+     * @param ThemeCollection $themeCollection
+     */
     public function __construct(ThemeRegistration $themeRegistration,
                                 ResourceConfig $resourceConfig,
                                 ThemeCollection $themeCollection)

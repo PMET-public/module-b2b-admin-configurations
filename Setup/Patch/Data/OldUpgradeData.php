@@ -18,6 +18,10 @@ class OldUpgradeData implements DataPatchInterface,PatchVersionInterface
     private $resourceConfig;
 
 
+    /**
+     * OldUpgradeData constructor.
+     * @param ResourceConfig $resourceConfig
+     */
     public function __construct(ResourceConfig $resourceConfig)
     {
         $this->resourceConfig = $resourceConfig;
